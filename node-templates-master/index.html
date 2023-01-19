@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Node Templates</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css" media="all">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Node Templates</h1>
+
+        <a id="github" href="https://github.com/paularmstrong/node-templates"><span>Fork me on GitHub!</span> <span>Feel awesome!</span></a>
+
+        <p>There are a lot of template languages available for Node.js. But how do you pick the right one?</p>
+        <p>This page aims to help you choose the template language that's best for you and your project.</p>
+
+        <nav>
+            <h2>Pages</h2>
+            <ul>
+                <li><a href="index.html">Feature Comparison</a></li>
+                <li><a href="benchmarks.html">Benchmarks</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
+            </ul>
+        </nav>
+
+        <h2>Template Languages <span>(alphabetical)</span></h2>
+        <ul>
+            <li><a href="http://coffeekup.org/">CoffeeKup</a> - Markup as CoffeeScript.</li>
+            <li><a href="https://github.com/visionmedia/ejs">EJS</a> - Embedded JavaScript templates</li>
+            <li><a href="https://github.com/creationix/haml-js">Haml-js</a> - Haml ported to server-side Javascript. This is a traditional server-side templating language.</li>
+            <li><a href="https://github.com/visionmedia/haml.js">Haml.js</a> - Faster / Express compliant Haml implementation</li>
+            <li><a href="http://jade-lang.com/">Jade</a> - Robust, elegant, feature rich template engine for Node.js.</li>
+            <li><a href="https://github.com/kof/node-jqtpl">JQTpl</a> - Port of jQuery's Template Engine to Node.js.</li>
+            <li><a href="https://github.com/raycmorgan/Mu">Mu2</a> - A Mustache template engine for Node.js.</li>
+            <li><a href="https://github.com/paularmstrong/swig">Swig</a> - Swig is a template engine inspired by the Django syntax.</li>
+            <li><a href="https://github.com/constantology/Templ8">Templ8</a> - JavaScript client/server template engine.</li>
+            <li><a href="https://github.com/gsf/whiskers.js">Whiskers</a> - A mustachioed templating library.</li>
+        </ul>
+
+    </header>
+
+    <section>
+        <h2>Feature Comparisons</h2>
+
+        <table id="features">
+            <thead>
+                <tr>
+                    <th>(click to toggle)</th>
+                    <th scope="col">CoffeeKup</th>
+                    <th scope="col">EJS</th>
+                    <th scope="col">Haml-js</th>
+                    <th scope="col">Haml.js</th>
+                    <th scope="col">Jade</th>
+                    <th scope="col">JQTpl</th>
+                    <th scope="col">Mu2</th>
+                    <th scope="col">Swig</th>
+                    <th scope="col">Templ8</th>
+                    <th scope="col">Whiskers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Express Support</th>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Browser Support</th>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><a class="partial" href="#jqtpl-browser">✜</a></td>
+                    <td><a class="partial" href="#mu-browser">✜</a></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Available via npm</th>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Variable Filters</th>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Shorthand HTML Syntax</th>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                </tr>
+                <li>
+                    <th scope="row">Extends / Block Template Inheritance</th>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                </li>
+                <tr>
+                    <th scope="row">Escapes Output</th>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Iteration</th>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                </tr>
+                <tr>
+                    <th scope="row"><code>if/else</code> Conditionals</th>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><a class="partial" href="#mu-ifelse">✜</a></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                </tr>
+                <tr>
+                    <th scope="row"><code>else if</code> Conditionals</th>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Extendable Tags, Logic, and/or Filters</th>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="no">✖</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Partials / Includes<sup><a class="partial" href="#partials">✜</a></sup></th>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                    <td><span class="yes">✔</span></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="11">Footnotes</th>
+                </tr>
+                <tr id="jqtpl-browser">
+                    <th><span class="partial">✜ JQTpl Browser Support</span></th>
+                    <td colspan="10">JQTpl can be supported in the browser via the <a href="https://github.com/jquery/jquery-tmpl">jQuery Templates plugin</a></td>
+                </tr>
+                <tr id="mu-browser">
+                    <th><span class="partial">✜ Mu Browser Support</span></th>
+                    <td colspan="10">Mu2/Mustache can be supported in the browser via <a href="https://github.com/janl/mustache.js">mustache.js</a>.</td>
+                </tr>
+                <tr id="mu-ifelse">
+                    <th><span class="partial">✜ Mu <code>if / else</code></span></th>
+                    <td colspan="10">Mu2/Mustache only supports <code>if</code> logic.</td>
+                </tr>
+                <tr id="partials">
+                    <th><span class="partial">✜ Partials</span></th>
+                    <td colspan="10">Language has some way to include and render sub-templates from within the main template.</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+
+    <footer>
+        <p>Found an error? Want to add another Template Engine? <a href="contributing.html">Find out how...</a></p>
+
+        <p>Created for the Node.js community by <a href="http://paularmstrongdesigns.com">Paul Armstrong</a>.</p>
+    </footer>
+
+    <script>
+    $(document).ready(function () {
+        $('table#features tbody tr th:first-child').bind('click', function () {
+            var remove = [],
+                i = 0,
+                els = null,
+                row = $(this).parent('tr').toggleClass('selected').parent('tbody').find('.selected').each(function () {
+                    $(this).find('td').each(function (i) {
+                        if ($(this).has('span.no').length) {
+                            remove.push(i + 2);
+                        }
+                    });
+                });
+
+            $('table#features thead th, table#features tbody td').removeClass('nonmatch');
+            i = remove.length;
+            while (i) {
+                i -= 1;
+                els = $('table#features thead th:nth-child(' + remove[i] + '), table#features tbody td:nth-child(' + remove[i] + ')').addClass('nonmatch');
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>

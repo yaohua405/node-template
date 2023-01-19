@@ -1,0 +1,575 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Node Templates</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css" media="all">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Node Template Engine Benchmarks</h1>
+
+        <a id="github" href="https://github.com/paularmstrong/node-templates"><span>Fork me on GitHub!</span> <span>Feel awesome!</span></a>
+
+        <nav>
+            <h2>Pages</h2>
+            <ul>
+                <li><a href="index.html">Feature Comparison</a></li>
+                <li><a href="benchmarks.html">Benchmarks</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
+            </ul>
+        </nav>
+
+        <p>These benchmarks should be taken <em>very lightly</em>. While, benchmarking is a good indication of one engine versus another, this doesn't show that, in reality, all of these template engines are <em>very fast</em>.</p>
+
+        <p>As a good rule, if your templating engine is your bottleneck, you shouldn't be using a templating engine.</p>
+    </header>
+
+    <section>
+        <article>
+            <h2>Overall</h2>
+
+            <table>
+                <caption>Compile and Render Benchmark Scores (bigger is better). Run on a 2.93 GHz Intel Core i7 iMac with 12GB RAM.</caption>
+                <thead>
+                    <tr>
+                        <th>Engine (npm name)</th>
+                        <th>Average (mean)</th>
+                        <th colspan="9">Scores (bigger is better)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">swig</th>
+                        <td class="mean" title="106.23021423021424">106.23</td>
+                        <td title="111.02397602397602">111.02</td>
+                        <td title="104.62237762237763">104.62</td>
+                        <td title="106.65434565434566">106.65</td>
+                        <td title="103.77522477522477">103.77</td>
+                        <td title="107.21378621378621">107.21</td>
+                        <td title="107.61938061938062">107.61</td>
+                        <td title="105.95904095904096">105.95</td>
+                        <td title="101.54245754245754">101.54</td>
+                        <td title="107.66133866133866">107.66</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">jqtpl</th>
+                        <td class="mean" title="39.44166944166944">39.44</td>
+                        <td title="40.28971028971029">40.28</td>
+                        <td title="40.04295704295704">40.04</td>
+                        <td title="38.795204795204796">38.79</td>
+                        <td title="40.03396603396603">40.03</td>
+                        <td title="38.51148851148851">38.51</td>
+                        <td title="40.43556443556444">40.43</td>
+                        <td title="38.60939060939061">38.60</td>
+                        <td title="38.556443556443554">38.55</td>
+                        <td title="39.7002997002997">39.70</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">whiskers</th>
+                        <td class="mean" title="31.436008436008436">31.43</td>
+                        <td title="31.48151848151848">31.48</td>
+                        <td title="31.71828171828172">31.71</td>
+                        <td title="30.974025974025974">30.97</td>
+                        <td title="31.555444555444556">31.55</td>
+                        <td title="32.022977022977024">32.02</td>
+                        <td title="32.32967032967033">32.32</td>
+                        <td title="30.744255744255746">30.74</td>
+                        <td title="30.693306693306692">30.69</td>
+                        <td title="31.404595404595405">31.40</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ejs</th>
+                        <td class="mean" title="14.226440226440227">14.22</td>
+                        <td title="14.556443556443556">14.55</td>
+                        <td title="14.417582417582418">14.41</td>
+                        <td title="14.051948051948052">14.05</td>
+                        <td title="14.38961038961039">14.38</td>
+                        <td title="14.184815184815184">14.18</td>
+                        <td title="14.181818181818182">14.18</td>
+                        <td title="14.171828171828173">14.17</td>
+                        <td title="14.233766233766234">14.23</td>
+                        <td title="13.850149850149851">13.85</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">hamljs</th>
+                        <td class="mean" title="5.551559551559552">5.55</td>
+                        <td title="5.479520479520479">5.47</td>
+                        <td title="5.5414585414585416">5.54</td>
+                        <td title="5.545454545454546">5.54</td>
+                        <td title="5.572427572427572">5.57</td>
+                        <td title="5.654345654345654">5.65</td>
+                        <td title="5.65034965034965">5.65</td>
+                        <td title="5.510489510489511">5.51</td>
+                        <td title="5.518481518481519">5.51</td>
+                        <td title="5.491508491508491">5.49</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">jade</th>
+                        <td class="mean" title="4.0368520368520375">4.03</td>
+                        <td title="3.8931068931068933">3.89</td>
+                        <td title="4.034965034965035">4.03</td>
+                        <td title="4.060939060939061">4.06</td>
+                        <td title="3.973026973026973">3.97</td>
+                        <td title="4.128871128871129">4.12</td>
+                        <td title="4.1098901098901095">4.10</td>
+                        <td title="4.011988011988012">4.01</td>
+                        <td title="4.073926073926074">4.07</td>
+                        <td title="4.044955044955045">4.04</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">mu2</th>
+                        <td class="mean" title="3.245421245421246">3.24</td>
+                        <td title="3.144855144855145">3.14</td>
+                        <td title="3.305694305694306">3.30</td>
+                        <td title="3.312687312687313">3.31</td>
+                        <td title="3.265734265734266">3.26</td>
+                        <td title="3.177822177822178">3.17</td>
+                        <td title="3.28971028971029">3.28</td>
+                        <td title="3.2617382617382615">3.26</td>
+                        <td title="3.213786213786214">3.21</td>
+                        <td title="3.236763236763237">3.23</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">haml</th>
+                        <td class="mean" title="1.9419752166020823">1.94</td>
+                        <td title="1.998001998001998">1.99</td>
+                        <td title="1.976023976023976">1.97</td>
+                        <td title="1.989010989010989">1.98</td>
+                        <td title="1.959040959040959">1.95</td>
+                        <td title="1.9410589410589412">1.94</td>
+                        <td title="1.936318407960199">1.93</td>
+                        <td title="1.887112887112887">1.88</td>
+                        <td title="1.899100899100899">1.89</td>
+                        <td title="1.8921078921078922">1.89</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">templ8</th>
+                        <td class="mean" title="1.6665556665556664">1.66</td>
+                        <td title="1.6323676323676324">1.63</td>
+                        <td title="1.6763236763236764">1.67</td>
+                        <td title="1.6653346653346652">1.66</td>
+                        <td title="1.6653346653346652">1.66</td>
+                        <td title="1.7092907092907093">1.70</td>
+                        <td title="1.7032967032967032">1.70</td>
+                        <td title="1.6803196803196803">1.68</td>
+                        <td title="1.6503496503496504">1.65</td>
+                        <td title="1.6163836163836163">1.61</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">coffeekup</th>
+                        <td class="mean" title="0.8015524063428257">0.80</td>
+                        <td title="0.7722277722277723">0.77</td>
+                        <td title="0.8011988011988012">0.80</td>
+                        <td title="0.8181818181818182">0.81</td>
+                        <td title="0.8091908091908092">0.80</td>
+                        <td title="0.8051948051948052">0.80</td>
+                        <td title="0.8143712574850299">0.81</td>
+                        <td title="0.8241758241758241">0.82</td>
+                        <td title="0.7852147852147852">0.78</td>
+                        <td title="0.7842157842157842">0.78</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3">Fastest</th>
+                        <th colspan="2">Versus</th>
+                        <th colspan="2">% Faster</th>
+                        <th colspan="2">Times Faster</th>
+                        <th colspan="2">Order of Magnitude Faster</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="2">swig complete</td>
+                        <td colspan="2">jqtpl</td>
+                        <td colspan="2">62.87%</td>
+                        <td colspan="2">2.69</td>
+                        <td colspan="2">0.43</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">coffeekup</td>
+                        <td colspan="2">99.25%</td>
+                        <td colspan="2">132.53</td>
+                        <td colspan="2">2.12</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+
+        <article>
+            <h2>Compile Step</h2>
+
+            <table>
+                <caption>Compile-Only<a class="partial" href="#compile-foot">*</a> Benchmark Scores (bigger is better). Run on a 2.93 GHz Intel Core i7 iMac with 12GB RAM.</caption>
+                <thead>
+                    <tr>
+                        <th>Engine (npm name)</th>
+                        <th>Average (mean)</th>
+                        <th colspan="9">Scores (bigger is better)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">jqtpl</th>
+                        <td class="mean" title="649.9428349428349">649.94</td>
+                        <td title="639.2217782217782">639.22</td>
+                        <td title="634.3066933066933">634.30</td>
+                        <td title="669.2717282717283">669.27</td>
+                        <td title="664.7622377622378">664.76</td>
+                        <td title="652.1548451548451">652.15</td>
+                        <td title="647.1138861138861">647.11</td>
+                        <td title="647.2567432567432">647.25</td>
+                        <td title="668.1328671328671">668.13</td>
+                        <td title="627.2647352647352">627.26</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">swig</th>
+                        <td class="mean" title="605.5762015762016">605.57</td>
+                        <td title="618.6403596403596">618.64</td>
+                        <td title="579.6053946053946">579.60</td>
+                        <td title="623.7922077922078">623.79</td>
+                        <td title="630.1678321678322">630.16</td>
+                        <td title="599.5184815184815">599.51</td>
+                        <td title="599.5254745254746">599.52</td>
+                        <td title="595.8711288711289">595.87</td>
+                        <td title="597.4725274725274">597.47</td>
+                        <td title="605.5924075924075">605.59</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">whiskers</th>
+                        <td class="mean" title="37.6869796869797">37.68</td>
+                        <td title="37.88611388611388">37.88</td>
+                        <td title="38.12687312687313">38.12</td>
+                        <td title="37.71628371628372">37.71</td>
+                        <td title="38.67832167832168">38.67</td>
+                        <td title="38.09090909090909">38.09</td>
+                        <td title="37.613386613386616">37.61</td>
+                        <td title="36.96603396603397">36.96</td>
+                        <td title="36.49150849150849">36.49</td>
+                        <td title="37.613386613386616">37.61</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ejs</th>
+                        <td class="mean" title="19.644466644466647">19.64</td>
+                        <td title="19.51048951048951">19.51</td>
+                        <td title="19.568431568431567">19.56</td>
+                        <td title="20.26073926073926">20.26</td>
+                        <td title="19.751248751248752">19.75</td>
+                        <td title="20.140859140859142">20.14</td>
+                        <td title="19.843156843156844">19.84</td>
+                        <td title="18.802197802197803">18.80</td>
+                        <td title="19.453546453546455">19.45</td>
+                        <td title="19.46953046953047">19.46</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">hamljs</th>
+                        <td class="mean" title="6.118881118881117">6.11</td>
+                        <td title="6.383616383616384">6.38</td>
+                        <td title="6.485514485514486">6.48</td>
+                        <td title="6.491508491508491">6.49</td>
+                        <td title="5.999000999000999">5.99</td>
+                        <td title="6.165834165834166">6.16</td>
+                        <td title="5.985014985014985">5.98</td>
+                        <td title="5.403596403596404">5.40</td>
+                        <td title="6.055944055944056">6.05</td>
+                        <td title="6.0999000999001">6.09</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">jade</th>
+                        <td class="mean" title="5.017982017982018">5.01</td>
+                        <td title="4.967032967032967">4.96</td>
+                        <td title="5.200799200799201">5.20</td>
+                        <td title="5.053946053946054">5.05</td>
+                        <td title="5.037962037962038">5.03</td>
+                        <td title="5.042957042957043">5.04</td>
+                        <td title="4.955044955044955">4.95</td>
+                        <td title="4.817182817182817">4.81</td>
+                        <td title="5.058941058941059">5.05</td>
+                        <td title="5.027972027972028">5.02</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">mu2</th>
+                        <td class="mean" title="3.773785564029466">3.77</td>
+                        <td title="3.8011988011988014">3.80</td>
+                        <td title="3.854145854145854">3.85</td>
+                        <td title="3.6283716283716285">3.62</td>
+                        <td title="3.9000999000999">3.90</td>
+                        <td title="3.937062937062937">3.93</td>
+                        <td title="3.6393606393606395">3.63</td>
+                        <td title="3.790243902439024">3.79</td>
+                        <td title="3.6953046953046953">3.69</td>
+                        <td title="3.7182817182817183">3.71</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">haml</th>
+                        <td class="mean" title="2.040639763666701">2.04</td>
+                        <td title="2.032705649157582">2.03</td>
+                        <td title="2.126873126873127">2.12</td>
+                        <td title="2.091908091908092">2.09</td>
+                        <td title="2.0248262164846076">2.02</td>
+                        <td title="2.0719280719280717">2.07</td>
+                        <td title="2.073926073926074">2.07</td>
+                        <td title="2.03996003996004">2.03</td>
+                        <td title="1.974025974025974">1.97</td>
+                        <td title="1.9296046287367405">1.92</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">templ8</th>
+                        <td class="mean" title="1.9047832133042712">1.90</td>
+                        <td title="1.905094905094905">1.90</td>
+                        <td title="1.89010989010989">1.89</td>
+                        <td title="1.973026973026973">1.97</td>
+                        <td title="1.937062937062937">1.93</td>
+                        <td title="1.9030969030969032">1.90</td>
+                        <td title="1.9350649350649352">1.93</td>
+                        <td title="1.790401567091087">1.79</td>
+                        <td title="1.9290709290709291">1.92</td>
+                        <td title="1.8801198801198802">1.88</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">coffeekup</th>
+                        <td class="mean" title="0.8772192313858981">0.87</td>
+                        <td title="0.8751248751248751">0.87</td>
+                        <td title="0.8991008991008991">0.89</td>
+                        <td title="0.8759920634920635">0.87</td>
+                        <td title="0.8691308691308691">0.86</td>
+                        <td title="0.8711288711288712">0.87</td>
+                        <td title="0.8851148851148851">0.88</td>
+                        <td title="0.8791208791208791">0.87</td>
+                        <td title="0.8601398601398601">0.86</td>
+                        <td title="0.8801198801198801">0.88</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3">Fastest</th>
+                        <th colspan="2">Versus</th>
+                        <th colspan="2">% Faster</th>
+                        <th colspan="2">Times Faster</th>
+                        <th colspan="2">Order of Magnitude Faster</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="2">jqtpl compile</td>
+                        <td colspan="2">swig</td>
+                        <td colspan="2">6.83%</td>
+                        <td colspan="2">1.07</td>
+                        <td colspan="2">0.03</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">coffeekup</td>
+                        <td colspan="2">99.87%</td>
+                        <td colspan="2">740.91</td>
+                        <td colspan="2">2.87</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+
+        <article>
+            <h2>Render Step</h2>
+
+            <table>
+                <caption>Render-Only Benchmark Scores (bigger is better). Run on a 2.93 GHz Intel Core i7 iMac with 12GB RAM.</caption>
+                <thead>
+                    <tr>
+                        <th>Engine (npm name)</th>
+                        <th>Average (mean)</th>
+                        <th colspan="9">Scores (bigger is better)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">whiskers</th>
+                        <td class="mean" title="263.25863025863026">263.25</td>
+                        <td title="263.65934065934067">263.65</td>
+                        <td title="265.5844155844156">265.58</td>
+                        <td title="259.86213786213784">259.86</td>
+                        <td title="262.45754245754244">262.45</td>
+                        <td title="267.2597402597403">267.25</td>
+                        <td title="263.000999000999">263.00</td>
+                        <td title="262.9020979020979">262.90</td>
+                        <td title="262.963036963037">262.96</td>
+                        <td title="261.63836163836163">261.63</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">swig</th>
+                        <td class="mean" title="120.26695526695529">120.26</td>
+                        <td title="121.07592407592408">121.07</td>
+                        <td title="117.53646353646354">117.53</td>
+                        <td title="117.49350649350649">117.49</td>
+                        <td title="118.75024975024975">118.75</td>
+                        <td title="121.85114885114885">121.85</td>
+                        <td title="119.18681318681318">119.18</td>
+                        <td title="120.53546453546454">120.53</td>
+                        <td title="122.23476523476523">122.23</td>
+                        <td title="123.73826173826174">123.73</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">haml</th>
+                        <td class="mean" title="89.48851148851149">89.48</td>
+                        <td title="90.08491508491508">90.08</td>
+                        <td title="87.65734265734265">87.65</td>
+                        <td title="89.85714285714286">89.85</td>
+                        <td title="89.45954045954046">89.45</td>
+                        <td title="90.8041958041958">90.80</td>
+                        <td title="89.02497502497502">89.02</td>
+                        <td title="87.91808191808192">87.91</td>
+                        <td title="90.63236763236763">90.63</td>
+                        <td title="89.95804195804196">89.95</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ejs</th>
+                        <td class="mean" title="76.57675657675658">76.57</td>
+                        <td title="71.03396603396604">71.03</td>
+                        <td title="76.44255744255744">76.44</td>
+                        <td title="75.94405594405595">75.94</td>
+                        <td title="78.86413586413586">78.86</td>
+                        <td title="78.56543456543457">78.56</td>
+                        <td title="77.49550449550449">77.49</td>
+                        <td title="77.19080919080919">77.19</td>
+                        <td title="76.70929070929071">76.70</td>
+                        <td title="76.94505494505495">76.94</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">hamljs</th>
+                        <td class="mean" title="59.051171051171046">59.05</td>
+                        <td title="58.16783216783217">58.16</td>
+                        <td title="57.7972027972028">57.79</td>
+                        <td title="58.582417582417584">58.58</td>
+                        <td title="60.120879120879124">60.12</td>
+                        <td title="59.53146853146853">59.53</td>
+                        <td title="59.53146853146853">59.53</td>
+                        <td title="58.97202797202797">58.97</td>
+                        <td title="59.106893106893104">59.10</td>
+                        <td title="59.65034965034965">59.65</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">jqtpl</th>
+                        <td class="mean" title="41.77389277389277">41.77</td>
+                        <td title="42.0979020979021">42.09</td>
+                        <td title="40.27972027972028">40.27</td>
+                        <td title="40.675324675324674">40.67</td>
+                        <td title="40.27972027972028">40.27</td>
+                        <td title="42.81118881118881">42.81</td>
+                        <td title="42.091908091908095">42.09</td>
+                        <td title="42.25974025974026">42.25</td>
+                        <td title="42.51248751248751">42.51</td>
+                        <td title="42.95704295704296">42.95</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">mu2</th>
+                        <td class="mean" title="37.321789321789325">37.32</td>
+                        <td title="36.82517482517483">36.82</td>
+                        <td title="36.64935064935065">36.64</td>
+                        <td title="36.604395604395606">36.60</td>
+                        <td title="37.85914085914086">37.85</td>
+                        <td title="37.51048951048951">37.51</td>
+                        <td title="38.061938061938065">38.06</td>
+                        <td title="37.1948051948052">37.19</td>
+                        <td title="37.54745254745255">37.54</td>
+                        <td title="37.64335664335665">37.64</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">jade</th>
+                        <td class="mean" title="25.39094239094239">25.39</td>
+                        <td title="25.653346653346652">25.65</td>
+                        <td title="25.506493506493506">25.50</td>
+                        <td title="25.503496503496503">25.50</td>
+                        <td title="25.097902097902097">25.09</td>
+                        <td title="24.89010989010989">24.89</td>
+                        <td title="25.337662337662337">25.33</td>
+                        <td title="25.371628371628372">25.37</td>
+                        <td title="25.47852147852148">25.47</td>
+                        <td title="25.67932067932068">25.67</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">coffeekup</th>
+                        <td class="mean" title="18.84088376831916">18.84</td>
+                        <td title="18.995004995004994">18.99</td>
+                        <td title="18.853146853146853">18.85</td>
+                        <td title="18.232767232767234">18.23</td>
+                        <td title="18.973026973026972">18.97</td>
+                        <td title="18.929070929070928">18.92</td>
+                        <td title="18.895626242544733">18.89</td>
+                        <td title="18.81018981018981">18.81</td>
+                        <td title="18.952047952047952">18.95</td>
+                        <td title="18.927072927072928">18.92</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">templ8</th>
+                        <td class="mean" title="15.782883782883781">15.78</td>
+                        <td title="15.093906093906094">15.09</td>
+                        <td title="15.317682317682317">15.31</td>
+                        <td title="15.747252747252746">15.74</td>
+                        <td title="16.038961038961038">16.03</td>
+                        <td title="15.766233766233766">15.76</td>
+                        <td title="15.999000999001">15.99</td>
+                        <td title="16.087912087912088">16.08</td>
+                        <td title="16.06193806193806">16.06</td>
+                        <td title="15.933066933066932">15.93</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3">Fastest</th>
+                        <th colspan="2">Versus</th>
+                        <th colspan="2">% Faster</th>
+                        <th colspan="2">Times Faster</th>
+                        <th colspan="2">Order of Magnitude Faster</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="2">whiskers render</td>
+                        <td colspan="2">swig</td>
+                        <td colspan="2">54.32%</td>
+                        <td colspan="2">2.19</td>
+                        <td colspan="2">0.34</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">templ8</td>
+                        <td colspan="2">94%</td>
+                        <td colspan="2">16.68</td>
+                        <td colspan="2">1.22</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+
+        <p>To calculate these benchmarks on your own system, clone <a href="https://github.com/paularmstrong/node-templates">this repository</a> and run <code>node index.js</code> from your command-line.</p>
+
+    </section>
+
+    <footer>
+        <p>Found an error? Want to add another Template Engine? <a href="contributing.html">Find out how...</a></p>
+
+        <p>Created for the Node.js community by <a href="http://paularmstrongdesigns.com">Paul Armstrong</a>.</p>
+    </footer>
+
+    <script>
+    $(document).ready(function () {
+        $('table#features tbody tr th:first-child').bind('click', function () {
+            var remove = [],
+                i = 0,
+                els = null,
+                row = $(this).parent('tr').toggleClass('selected').parent('tbody').find('.selected').each(function () {
+                    $(this).find('td').each(function (i) {
+                        if ($(this).has('span.no').length) {
+                            remove.push(i + 2);
+                        }
+                    });
+                });
+
+            $('table#features thead th, table#features tbody td').removeClass('nonmatch');
+            i = remove.length;
+            while (i) {
+                i -= 1;
+                els = $('table#features thead th:nth-child(' + remove[i] + '), table#features tbody td:nth-child(' + remove[i] + ')').addClass('nonmatch');
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
